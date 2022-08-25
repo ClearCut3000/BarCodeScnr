@@ -8,13 +8,13 @@
 import AVFoundation
 import UIKit
 
-enum CameraError: String {
-  case invalidDevice = "Unable to permit video device."
-  case invalidDeviceInput = "Unable to capture the input."
-  case cantAddInput = "Can’t add an input to a capture session."
-  case cantAddOutput = "A given output can be added to the session."
-  case previewLayerError = "Error with a layer that displays the video as it’s captured."
-  case invalidScanedValue = "Unadle to find EAN-8 or EAN-13 codes."
+enum CameraError {
+  case invalidDevice
+  case invalidDeviceInput
+  case cantAddInput
+  case cantAddOutput
+  case previewLayerError
+  case invalidScanedValue
 }
 
 protocol ScannerVCDelegate: AnyObject {
