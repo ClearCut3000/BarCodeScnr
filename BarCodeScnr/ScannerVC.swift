@@ -39,6 +39,21 @@ final class ScannerVC: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
 
+  //MARK: - View lifecycle
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    setupCaptureSession()
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    guard let previewLayer = previewLayer else {
+      scannerDelegate.didSurface(error: CameraError.previewLayerError)
+      return
+    }
+    previewLayer.frame = view.layer.bounds
+  }
+
   //MARK: - Methods
   private func setupCaptureSession() {
     guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
